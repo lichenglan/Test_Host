@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.squareup.sqldelight'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+    defaultConfig {
+        applicationId "com.techjumper.polyhome.polyhomebhost"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 101
+        versionName "0.1.1"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('../sign/release.jks')
+            storePassword "hidejumper"
+            keyAlias "TechJumper"
+            keyPassword "hidejumper"
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFile 'jumper_proguard.pro'
+        }
+        debug {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFile 'jumper_proguard.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile project(':progressdialog')
+    compile project(':DroidPluginManager')
+//    compile 'com.github.asLody:turbodex:1.1.0'
+    compile project(':JPush')
+    compile project(':HDownloadManager')
+
+
+    compile "com.github.anrwatchdog:anrwatchdog:$rootProject.anr_whatchDog"
+}

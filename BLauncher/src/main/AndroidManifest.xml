@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.techjumper.polyhome.blauncher">
+
+    <permission
+        android:name="com.techjumper.polyhome.blauncher.permission.ACCESS"
+        android:protectionLevel="normal"/>
+
+    <uses-permission android:name="com.techjumper.polyhome.polyhomebhost.permission.ACCESS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+
+    <application
+        android:name=".system.BLauncherApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup">
+        <activity
+            android:name=".mvp.v.activity.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden|adjustPan|">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".service.BLauncherService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.techjumper.polyhome.blauncher.CORE_ENGINE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.PluginCommunicateService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.techjumper.polyhome.blauncher.PLUGIN.SERVICE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.AlarmReceiveService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+        <service android:name=".service.BLauncherService$FakeService"/>
+    </application>
+
+</manifest>

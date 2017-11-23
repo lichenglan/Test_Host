@@ -1,0 +1,1 @@
+include ':BHost', ':corelib', ':lib2', ':progressdialog', ':DroidPlugin', ':DroidPluginManager', ':BLauncher', ':PluginAppDemo', ':PluginCommunicateEngine', ':HDownloadManager', ':JPush', ':plugintest2', ':BHostDaemon'

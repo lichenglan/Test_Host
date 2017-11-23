@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.squareup.sqldelight'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    //    compile "io.realm:realm-android:$rootProject.realmAndroid"
+    compile project(':corelib')
+    compile "com.google.code.gson:gson:$rootProject.gson"
+    compile "com.squareup.retrofit2:retrofit:$rootProject.retrofit"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.converter_gson"
+    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.adapter_rxjava"
+    compile "com.squareup.okhttp3:okhttp:$rootProject.okhttp"
+    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.logging_interceptor"
+    compile "com.squareup.okio:okio:$rootProject.okio"
+    compile "com.squareup.picasso:picasso:$rootProject.picasso"
+    compile "com.jakewharton.picasso:picasso2-okhttp3-downloader:$rootProject.picasso2_okhttp3_downloader"
+    compile "com.squareup.sqlbrite:sqlbrite:$rootProject.sqlbrite"
+    apt "com.google.auto.value:auto-value:$rootProject.auto_value"
+    compile "com.google.auto.value:auto-value:$rootProject.auto_value"
+    provided "com.jakewharton.auto.value:auto-value-annotations:$rootProject.jake_auto_value"
+}

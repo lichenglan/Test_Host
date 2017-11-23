@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PolyhomeBLauncher</string>
+
+    <string name="error_to_connect_server">网络连接失败!</string>
+    <string name="error_no_data">暂无任何内容</string>
+    <string name="alread_latest_version">已经是最新版本~</string>
+    <string name="error_network">网络连接失败</string>
+
+</resources>

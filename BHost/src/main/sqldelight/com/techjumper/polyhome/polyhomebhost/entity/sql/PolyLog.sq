@@ -1,0 +1,21 @@
+CREATE TABLE poly_log (
+    _id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    content TEXT NOT NULL,
+    time INTEGER NOT NULL
+
+);
+
+select_all:
+SELECT *
+FROM poly_log;
+
+select_log_between_time:
+SELECT *
+FROM poly_log
+WHERE time
+BETWEEN ? AND ?;
+
+update_number:
+UPDATE poly_log
+SET content = ?
+WHERE _id = ?;
